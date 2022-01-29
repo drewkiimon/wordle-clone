@@ -93,18 +93,26 @@ const BoardRow = ({ length, numberOfAttempts }: BoardRowProps) => {
   const [text, setText] = useState<string>("");
 
   const gridColumnsStyle = {
-    "grid-template-columns": Array.from(Array(length))
+    gridTemplateColumns: Array.from(Array(length))
       .map(() => {
         return "1fr";
       })
       .join(" "),
   };
 
+  const cellColumnStyle = {
+    aspectRatio: "1/1",
+  };
+
   const createCells = (): Array<ReactElement> => {
     const cells = [];
 
     for (var i = 0; i <= length - 1; i++) {
-      cells.push(<div key={i}>I am a cell</div>);
+      cells.push(
+        <div key={i} className={styles.boardCell} style={cellColumnStyle}>
+          {text[i]}
+        </div>
+      );
     }
 
     return cells;

@@ -12,6 +12,23 @@
 .boardRow {
   display: grid;
   gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.boardRow > [style^="--aspect-ratio"]::before {
+  content: "";
+  display: inline-block;
+  padding-bottom: calc(100% / (var(--aspect-ratio)));
+}
+
+.boardCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid black;
+  border-radius: 4px;
+  background: white;
 }
 
 #coolBoard {
